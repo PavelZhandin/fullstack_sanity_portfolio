@@ -1,31 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./About.scss";
-import { images } from "../../constants";
 import { urlFor, client } from "../../client";
 import { IAbout } from "../../types";
-// const abouts = [
-//   {
-//     title: "Web Development",
-//     description: "I'm a good Wev developer",
-//     imgUrl: images.about01,
-//   },
-//   {
-//     title: "Web Design",
-//     description: "I'm a good Wev developer",
-//     imgUrl: images.about01,
-//   },
-//   {
-//     title: "UI/IX",
-//     description: "I'm a good Wev developer",
-//     imgUrl: images.about03,
-//   },
-//   {
-//     title: "Web Animations",
-//     description: "I'm a good Wev developer",
-//     imgUrl: images.about04,
-//   },
-// ];
+import { AppWrap } from "../../wrapper";
 
 const About = () => {
   const [abouts, setAbouts] = useState<IAbout[]>([]);
@@ -59,7 +37,7 @@ const About = () => {
               type: "tween",
             }}
             className="app__profile-item"
-            key={about.imgUrl}
+            key={`${about.imgUrl}-${index}`}
           >
             <img src={urlFor(about.imgUrl).url()} alt={about.title} />
 
@@ -76,4 +54,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AppWrap(About, "about");
