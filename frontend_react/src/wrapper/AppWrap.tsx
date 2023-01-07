@@ -1,13 +1,7 @@
 import React, { ReactElement } from "react";
 import { NavigationDots, SocialMedia } from "../components";
 
-interface IAppWrap {
-  Component: ReactElement;
-  idName: string;
-  classNames: string[];
-}
-
-const AppWrap = (Component: any, idName: string, classNames?: string[]) =>
+const AppWrap = (Component: any, idName: string, classNames?: string) =>
   function HOC() {
     return (
       <div id={idName} className={`app__container ${classNames}`}>
