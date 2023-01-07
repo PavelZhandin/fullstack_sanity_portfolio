@@ -1,4 +1,3 @@
-import React, { ReactElement } from "react";
 import { NavigationDots, SocialMedia } from "../components";
 
 const AppWrap = (Component: any, idName: string, classNames?: string) =>
